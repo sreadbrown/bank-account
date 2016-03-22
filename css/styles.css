@@ -1,0 +1,11 @@
+#show-account {
+  display: none;
+}
+.account {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.account:hover {
+  text-decoration: underline;
+}
