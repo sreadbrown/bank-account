@@ -1,6 +1,9 @@
 #show-account {
   display: none;
 }
+.bolded {
+  font-weight: bold;
+}
 .account {
   cursor: pointer;
   color: #0088cc;

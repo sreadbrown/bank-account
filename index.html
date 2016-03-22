@@ -9,46 +9,50 @@
   </head>
   <body>
     <div class="container">
-     <h1>New Bank Account</h1>
+     <h1>Bank of Sarah & Danny</h1>
 
      <div class="row">
        <div class="col-md-6">
-         <h2>Add a bank account :</h2>
-         <form id="new-account">
-           <div class="form-group">
-             <label for="new-name">Full Name</label>
-             <input type="text" class="form-control" id="new-name">
-           </div>
-           <div class="form-group">
-             <label for="new-account-alias">Acount Alias</label>
-             <input type="text" class="form-control" id="new-account-alias">
-           </div>
-           <div class="form-group">
-             <label for="new-account-type">Savings or Checking: </label>
-             <input type="text" class="form-control" id="new-account-type">
-           </div>
-           <div class="form-group">
-             <label for="new-initial-deposit">Initial Deposit Amount: </label>
-             <input type="text" class="form-control" id="new-initial-deposit">
-           </div>
+         <div class= "add-account">
+           <h2>Add a bank account :</h2>
+           <form id="new-account">
+             <div class="form-group">
+               <label for="new-name">Full Name</label>
+               <input type="text" class="form-control" id="new-name">
+             </div>
+             <div class="form-group">
+               <label for="new-account-alias">Acount Alias</label>
+               <input type="text" class="form-control" id="new-account-alias">
+             </div>
+             <div class="form-group">
+               <label for="new-account-type">Savings or Checking: </label>
+               <input type="text" class="form-control" id="new-account-type">
+             </div>
+             <div class="form-group">
+               <label for="new-initial-deposit">Initial Deposit Amount: </label>
+               <input type="text" class="form-control" id="new-initial-deposit">
+             </div>
 
-           <button type="submit" class="btn">Add</button>
-         </form>
+             <button type="submit" class="btn">Add</button>
+           </form>
 
-         <h2>New Account:</h2>
-         <ul id="accounts">
+         </div>
 
-         </ul>
+         <h2>Your Account:</h2>
+         <div id="show-account">
+           <h2></h2>
+
+           <p><span class="bolded">Name:</span> <span class="full-name"></span></p>
+           <p><span class="bolded">Account Alias:</span> <span class="account-alias"></span></p>
+           <p><span class="bolded">Account Type:</span> <span class="account-type"></span></p>
+           <p><span class="bolded">Account Balance:</span> $<span class="account-balance"></span></p>
+         </div>
+         <!-- <ul id="accounts">
+
+         </ul> -->
        </div>
        <div class="col-md-6">
-        <div id="show-account">
-          <h2></h2>
 
-          <p>Name: <span class="full-name"></span></p>
-          <!-- <p>Account Alias: <span class="account-alias"></span></p> -->
-          <p>Account Type: <span class="account-type"></span></p>
-          <p>Account Balance: $<span class="account-balance"></span></p>
-        </div>
       </div>
      </div>
    </div>
