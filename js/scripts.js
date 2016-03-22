@@ -5,11 +5,15 @@ function BankAccount(name, alias, type, initial) {
   this.initial = initial;
 }
 
-BankAccount.prototype.withdrawl = function() {
-  this.initial = this.initial - inputtedWithDrawl;
-}
-BankAccount.prototype.deposit = function() {
-  this.initial = this.initial + inputtedDeposit;
+// BankAccount.prototype.withdrawl = function() {
+//   this.initial = this.initial - inputtedWithDrawl;
+// }
+// BankAccount.prototype.deposit = function() {
+//   this.initial = this.initial + inputtedDeposit;
+// }
+
+BankAccount.prototype.balance = function() {
+  this.initial = this.initial + inputtedDeposit - inputtedWithDrawl;
 }
 
 $(document).ready(function() {
@@ -20,8 +24,6 @@ $(document).ready(function() {
     var inputtedAccountAlias = $("input#new-account-alias").val();
     var inputtedAccountType = $("input#new-account-type").val();
     var inputtedInitialDeposit = $("input#new-initial-deposit").val();
-    var inputtedWithDrawl = $("input#").val("");
-    var inputtedDeposit = $("input#").val("");
 
     var newAccount = new BankAccount (inputtedFullName, inputtedAccountAlias, inputtedAccountType, inputtedInitialDeposit);
 
@@ -35,10 +37,25 @@ $(document).ready(function() {
     $(".account-balance").text(newAccount.initial);
     // });
     $(".add-account").hide();
+
     // $("input#new-name").val("");
     // $("input#new-account-type").val("");
     // $("input#new-initial-deposit").val("");
     // $("input#new-account-alias").val("");
 
+
+  });
+  $("form#transaction").submit(function(event) {
+    event.preventDefault();
+    var inputtedWithDrawl = $("input#new-withdrawl").val("");
+    var inputtedDeposit = $("input#new-deposit").val("");
+
+    $newAccount.balance();
+
+    $("#show-transaction h2").text(newAccount.initial);
+
+
+    $("input#new-deposit").val("");
+    $("input#new-withdrawl").val("");
   });
 });
