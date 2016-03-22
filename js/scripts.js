@@ -5,6 +5,13 @@ function BankAccount(name, alias, type, initial) {
   this.initial = initial;
 }
 
+BankAccount.prototype.withdrawl = function() {
+  this.initial = this.initial - inputtedWithDrawl;
+}
+BankAccount.prototype.deposit = function() {
+  this.initial = this.initial + inputtedDeposit;
+}
+
 $(document).ready(function() {
   $("form#new-account").submit(function(event) {
     event.preventDefault();
@@ -13,6 +20,8 @@ $(document).ready(function() {
     var inputtedAccountAlias = $("input#new-account-alias").val();
     var inputtedAccountType = $("input#new-account-type").val();
     var inputtedInitialDeposit = $("input#new-initial-deposit").val();
+    var inputtedWithDrawl = $("input#").val("");
+    var inputtedDeposit = $("input#").val("");
 
     var newAccount = new BankAccount (inputtedFullName, inputtedAccountAlias, inputtedAccountType, inputtedInitialDeposit);
 
