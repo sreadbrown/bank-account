@@ -58,8 +58,8 @@ $(document).ready(function() {
       $("#show-transaction h2").text("$" + newAccount.initial);
       // debugger;
 
-      $("input#new-deposit").val("");
-      $("input#new-withdrawl").val("");
+      $("input#new-deposit").val("0");
+      $("input#new-withdrawl").val("0");
     });
 
   });
