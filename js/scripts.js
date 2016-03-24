@@ -5,18 +5,18 @@ function BankAccount(name, alias, type, initial) {
   this.initial = initial;
 }
 
-// BankAccount.prototype.withdrawl = function() {
+// BankAccount.prototype.withdrawl = function(inputtedWithDrawl) {
 //   this.initial = this.initial - inputtedWithDrawl;
 // }
-BankAccount.prototype.deposit = function(inputtedDeposit) {
-  this.initial = this.initial + inputtedDeposit;
-}
-
-
-// BankAccount.prototype.balance = function(inputtedDeposit, inputtedWithDrawl) {
-//   this.initial = this.initial + inputtedDeposit - inputtedWithDrawl;
-//   // return this.initial;
+// BankAccount.prototype.deposit = function(inputtedDeposit) {
+//   this.initial = this.initial + inputtedDeposit;
 // }
+
+
+BankAccount.prototype.balance = function(inputtedDeposit, inputtedWithDrawl) {
+  this.initial = this.initial + inputtedDeposit - inputtedWithDrawl;
+  // return this.initial;
+}
 
 $(document).ready(function() {
   $("form#new-account").submit(function(event) {
@@ -48,9 +48,11 @@ $(document).ready(function() {
       event.preventDefault();
       // alert("buttons");
 
-      // var inputtedWithDrawl = $("input#new-withdrawl").val();
+      var inputtedWithDrawl = parseInt($("input#new-withdrawl").val());
       var inputtedDeposit = parseInt($("input#new-deposit").val());
-      newAccount.deposit(inputtedDeposit);
+      // newAccount.deposit(inputtedDeposit);
+      // newAccount.withdrawl(inputtedWithDrawl);
+      newAccount.balance(inputtedDeposit, inputtedWithDrawl);
 
       $("#show-transaction h2").show();
       $("#show-transaction h2").text("$" + newAccount.initial);
