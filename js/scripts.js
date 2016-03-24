@@ -8,13 +8,15 @@ function BankAccount(name, alias, type, initial) {
 // BankAccount.prototype.withdrawl = function() {
 //   this.initial = this.initial - inputtedWithDrawl;
 // }
-// BankAccount.prototype.deposit = function() {
-//   this.initial = this.initial + inputtedDeposit;
-// }
-
-BankAccount.prototype.balance = function() {
-  this.initial = this.initial + inputtedDeposit - inputtedWithDrawl;
+BankAccount.prototype.deposit = function(inputtedDeposit) {
+  this.initial = this.initial + inputtedDeposit;
 }
+
+
+// BankAccount.prototype.balance = function(inputtedDeposit, inputtedWithDrawl) {
+//   this.initial = this.initial + inputtedDeposit - inputtedWithDrawl;
+//   // return this.initial;
+// }
 
 $(document).ready(function() {
   $("form#new-account").submit(function(event) {
@@ -23,7 +25,7 @@ $(document).ready(function() {
     var inputtedFullName = $("input#new-name").val();
     var inputtedAccountAlias = $("input#new-account-alias").val();
     var inputtedAccountType = $("input#new-account-type").val();
-    var inputtedInitialDeposit = $("input#new-initial-deposit").val();
+    var inputtedInitialDeposit = parseInt($("input#new-initial-deposit").val());
 
     var newAccount = new BankAccount (inputtedFullName, inputtedAccountAlias, inputtedAccountType, inputtedInitialDeposit);
 
@@ -42,20 +44,22 @@ $(document).ready(function() {
     // $("input#new-account-type").val("");
     // $("input#new-initial-deposit").val("");
     // $("input#new-account-alias").val("");
+    $("form#transaction").submit(function(event) {
+      event.preventDefault();
+      // alert("buttons");
 
+      // var inputtedWithDrawl = $("input#new-withdrawl").val();
+      var inputtedDeposit = parseInt($("input#new-deposit").val());
+      newAccount.deposit(inputtedDeposit);
+
+      $("#show-transaction h2").show();
+      $("#show-transaction h2").text("$" + newAccount.initial);
+      // debugger;
+
+      $("input#new-deposit").val("");
+      $("input#new-withdrawl").val("");
+    });
 
   });
-  $("form#transaction").submit(function(event) {
-    event.preventDefault();
-    var inputtedWithDrawl = $("input#new-withdrawl").val("");
-    var inputtedDeposit = $("input#new-deposit").val("");
 
-    $newAccount.balance();
-
-    $("#show-transaction h2").text(newAccount.initial);
-
-
-    $("input#new-deposit").val("");
-    $("input#new-withdrawl").val("");
-  });
 });

@@ -12,3 +12,7 @@
 .account:hover {
   text-decoration: underline;
 }
+
+#show-transaction h2 {
+  display: none;
+}
